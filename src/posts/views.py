@@ -93,13 +93,13 @@ def update_post(request, pk):
         obj.title = new_title
         obj.body = new_body
         obj.save()
-    return JsonResponse({
-        'title': new_title,
-        'body': new_body,
-    })
+        return JsonResponse({
+            'title': new_title,
+            'body': new_body,
+        })
 
 def delete_post(request, pk):
     obj = Post.objects.get(pk=pk)
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
         obj.delete()
-    return JsonResponse({})
+        return JsonResponse({})
