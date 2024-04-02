@@ -67,7 +67,7 @@ def post_detail_data_view(request, pk):
         'title': obj.title,
         'body': obj.body,
         'author': obj.author.user.username,
-        'logged in': request.user.username,
+        'logged_in': request.user.username,
     }
     return JsonResponse({'data': data})
 
